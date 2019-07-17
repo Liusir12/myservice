@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 import com.mysql.jdbc.Driver;
 
-//2)	ÏòÊı¾İ¿â²åÈëÈıÌõbookµÄÊı¾İ
+//2)	å‘æ•°æ®åº“æ’å…¥ä¸‰æ¡bookçš„æ•°æ®
 
 public class homeWork {
 	public static void sel2Book() {
@@ -17,23 +17,23 @@ public class homeWork {
 		 ResultSet rs=null;
 		 
 		 try {
-			 //¼ÓÔØÇı¶¯ µÄÁ½ÖÖ·½·¨ ¡£
-			 DriverManager.registerDriver(new Driver());  	 //·½Ê½Ò»£º
-			 Class.forName("com.mysql.jdbc.Driver");        //·½Ê½¶ş
-		//Á¬½ÓÊı¾İ¿â
+			 //åŠ è½½é©±åŠ¨ çš„ä¸¤ç§æ–¹æ³• ã€‚
+			 DriverManager.registerDriver(new Driver());  	 //æ–¹å¼ä¸€ï¼š
+			 Class.forName("com.mysql.jdbc.Driver");        //æ–¹å¼äºŒ
+		//è¿æ¥æ•°æ®åº“
 		conn = DriverManager.getConnection("jdbc:mysql:///db1904", "root", "123456");
-		//´´½¨Ö´ĞĞsqlÓï¾äµÄ¶ÔÏó ²¢Ìí¼ÓÒ»ÌõĞèÒªÖ´ĞĞµÄsqlÓï¾ä²¢¸³Öµ
-		String sql="select * from book where bname like 'Èı%'";
+		//åˆ›å»ºæ‰§è¡Œsqlè¯­å¥çš„å¯¹è±¡ å¹¶æ·»åŠ ä¸€æ¡éœ€è¦æ‰§è¡Œçš„sqlè¯­å¥å¹¶èµ‹å€¼
+		String sql="select * from book where bname like 'ä¸‰%'";
 		pstmt =conn.prepareStatement(sql);
 			
-			//´¦Àí·µ»ØµÄ½á¹û
+			//å¤„ç†è¿”å›çš„ç»“æœ
 			 rs=pstmt.executeQuery();
 			 while(rs.next()) {
 				 int bid=rs.getInt("bid");
 				 String bname=rs.getString("bname");
 				 String author=rs.getString("author");
 				 double price=rs.getDouble("price");
-				System.out.println("ÊéºÅ£º"+bid+",ÊéÃû£º"+bname+",×÷Õß£º"+author+",¼Û¸ñ£º"+price);
+				System.out.println("ä¹¦å·ï¼š"+bid+",ä¹¦åï¼š"+bname+",ä½œè€…1ï¼š"+author+",ä»·æ ¼ï¼š"+price);
 			 }
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
@@ -64,22 +64,22 @@ public class homeWork {
 		 ResultSet rs=null;
 		 
 		 try {
-			 //¼ÓÔØÇı¶¯
+			 //åŠ è½½é©±åŠ¨
 		Class.forName("com.mysql.jdbc.Driver");
-		//Á¬½ÓÊı¾İ¿â
+		//è¿æ¥æ•°æ®åº“
 		conn = DriverManager.getConnection("jdbc:mysql:///db1904", "root", "123456");
-		//´´½¨Ö´ĞĞsqlÓï¾äµÄ¶ÔÏó ²¢Ìí¼ÓÒ»ÌõĞèÒªÖ´ĞĞµÄsqlÓï¾ä²¢¸³Öµ
+		//åˆ›å»ºæ‰§è¡Œsqlè¯­å¥çš„å¯¹è±¡ å¹¶æ·»åŠ ä¸€æ¡éœ€è¦æ‰§è¡Œçš„sqlè¯­å¥å¹¶èµ‹å€¼
 		String sql="select * from book";
 		pstmt =conn.prepareStatement(sql);
 			
-			//´¦Àí·µ»ØµÄ½á¹û
+			//å¤„ç†è¿”å›çš„ç»“æœ
 			 rs=pstmt.executeQuery();
 			 while(rs.next()) {
 				 int bid=rs.getInt("bid");
 				 String bname=rs.getString("bname");
 				 String author=rs.getString("author");
 				 double price=rs.getDouble("price");
-				System.out.println("ÊéºÅ£º"+bid+",ÊéÃû£º"+bname+",×÷Õß£º"+author+",¼Û¸ñ£º"+price);
+				System.out.println("ä¹¦å·ï¼š"+bid+",ä¹¦åï¼š"+bname+",ä½œè€…ï¼š"+author+",ä»·æ ¼ï¼š"+price);
 			 }
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
@@ -107,21 +107,21 @@ public class homeWork {
 		 PreparedStatement pstmt=null;
 		 
 		 try {
-			 //¼ÓÔØÇı¶¯
+			 //åŠ è½½é©±åŠ¨
 		Class.forName("com.mysql.jdbc.Driver");
-		//Á¬½ÓÊı¾İ¿â
+		//è¿æ¥æ•°æ®åº“
 		conn = DriverManager.getConnection("jdbc:mysql:///db1904", "root", "123456");
-		//´´½¨Ö´ĞĞsqlÓï¾äµÄ¶ÔÏó ²¢Ìí¼ÓÒ»ÌõĞèÒªÖ´ĞĞµÄsqlÓï¾ä²¢¸³Öµ
+		//åˆ›å»ºæ‰§è¡Œsqlè¯­å¥çš„å¯¹è±¡ å¹¶æ·»åŠ ä¸€æ¡éœ€è¦æ‰§è¡Œçš„sqlè¯­å¥å¹¶èµ‹å€¼
 		String sql="delete from book where bid=?";
 		pstmt =conn.prepareStatement(sql);
 			pstmt.setInt(1, bid);
 			
-			//´¦Àí·µ»ØµÄ½á¹û
+			//å¤„ç†è¿”å›çš„ç»“æœ
 			int num =pstmt.executeUpdate();
 			if(num!=0) {
-				System.out.println("É¾³ı³É¹¦");
+				System.out.println("åˆ é™¤æˆåŠŸ");
 			}else {
-				System.out.println("É¾³ıÊ§°Ü");
+				System.out.println("åˆ é™¤å¤±è´¥");
 			}
 			
 			
@@ -149,21 +149,21 @@ public class homeWork {
 		 PreparedStatement pstmt=null;
 		 
 		 try {
-			 //¼ÓÔØÇı¶¯
+			 //åŠ è½½é©±åŠ¨
 		Class.forName("com.mysql.jdbc.Driver");
-		//Á¬½ÓÊı¾İ¿â
+		//è¿æ¥æ•°æ®åº“
 		conn = DriverManager.getConnection("jdbc:mysql:///db1904", "root", "123456");
-		//´´½¨Ö´ĞĞsqlÓï¾äµÄ¶ÔÏó ²¢Ìí¼ÓÒ»ÌõĞèÒªÖ´ĞĞµÄsqlÓï¾ä²¢¸³Öµ
+		//åˆ›å»ºæ‰§è¡Œsqlè¯­å¥çš„å¯¹è±¡ å¹¶æ·»åŠ ä¸€æ¡éœ€è¦æ‰§è¡Œçš„sqlè¯­å¥å¹¶èµ‹å€¼
 		String sql="update book set price=50 where bid=?";
 		pstmt =conn.prepareStatement(sql);
 			pstmt.setInt(1, bid);
 			
-			//´¦Àí·µ»ØµÄ½á¹û
+			//å¤„ç†è¿”å›çš„ç»“æœ
 			int num =pstmt.executeUpdate();
 			if(num!=0) {
-				System.out.println("ĞŞ¸Ä³É¹¦");
+				System.out.println("ä¿®æ”¹æˆåŠŸ");
 			}else {
-				System.out.println("ĞŞ¸ÄÊ§°Ü");
+				System.out.println("ä¿®æ”¹å¤±è´¥");
 			}
 			
 			
@@ -190,23 +190,23 @@ public class homeWork {
 		 PreparedStatement pstmt=null;
 		 
 		 try {
-			 //¼ÓÔØÇı¶¯
+			 //åŠ è½½é©±åŠ¨
 		Class.forName("com.mysql.jdbc.Driver");
-		//Á¬½ÓÊı¾İ¿â
+		//è¿æ¥æ•°æ®åº“
 		conn = DriverManager.getConnection("jdbc:mysql:///db1904", "root", "123456");
-		//´´½¨Ö´ĞĞsqlÓï¾äµÄ¶ÔÏó ²¢Ìí¼ÓÒ»ÌõĞèÒªÖ´ĞĞµÄsqlÓï¾ä²¢¸³Öµ
+		//åˆ›å»ºæ‰§è¡Œsqlè¯­å¥çš„å¯¹è±¡ å¹¶æ·»åŠ ä¸€æ¡éœ€è¦æ‰§è¡Œçš„sqlè¯­å¥å¹¶èµ‹å€¼
 		String sql="insert into book values(?,?,?,?)";
 		pstmt =conn.prepareStatement(sql);
 			pstmt.setInt(1, book.getBid());
 			pstmt.setString(2, book.getBname());
 			pstmt.setString(3, book.getAuthor());
 			pstmt.setDouble(4, book.getPrice());
-			//´¦Àí·µ»ØµÄ½á¹û
+			//å¤„ç†è¿”å›çš„ç»“æœ
 			int num =pstmt.executeUpdate();
 			if(num!=0) {
-				System.out.println("Ìí¼Ó³É¹¦");
+				System.out.println("æ·»åŠ æˆåŠŸ");
 			}else {
-				System.out.println("Ìí¼ÓÊ§°Ü");
+				System.out.println("æ·»åŠ å¤±è´¥");
 			}
 			
 			
@@ -230,9 +230,9 @@ public class homeWork {
 	 }	
 	
 	public static void main(String[] args) {
-//		Book book=new Book(1,"Èı¹úÑİÒå","ÂŞ¹áÖĞ",20.5);
-//		Book book1=new Book(2,"Î÷ÓÎ¼Ç","Îâ³Ğ¶÷",20);
-//		Book book2=new Book(3,"Ë®ä°´«","Ê©ÄÍâÖ",30);
+//		Book book=new Book(1,"ä¸‰å›½æ¼”ä¹‰","ç½—è´¯ä¸­",20.5);
+//		Book book1=new Book(2,"è¥¿æ¸¸è®°","å´æ‰¿æ©",20);
+//		Book book2=new Book(3,"æ°´æµ’ä¼ ","æ–½è€åºµ",30);
 //		addBook(book);
 //		addBook(book1);
 //		addBook(book2);
